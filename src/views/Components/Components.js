@@ -8,7 +8,6 @@ import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 // core components
 import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -25,6 +24,7 @@ import SectionJavascript from "./Sections/SectionJavascript.js";
 import SectionCarousel from "./Sections/SectionCarousel.js";
 import SectionCompletedExamples from "./Sections/SectionCompletedExamples.js";
 import SectionLogin from "./Sections/SectionLogin.js";
+import SectionSignup from "./Sections/SectionSignup.js";
 import SectionExamples from "./Sections/SectionExamples.js";
 import SectionDownload from "./Sections/SectionDownload.js";
 
@@ -74,6 +74,7 @@ export default function Components(props) {
         <SectionCarousel />
         <SectionCompletedExamples />
         <SectionLogin />
+        <SectionSignup />
         <GridItem md={12} className={classes.textCenter}>
           <Link to={"/login-page"} className={classes.link}>
             <Button color="primary" size="lg" simple>
@@ -84,7 +85,6 @@ export default function Components(props) {
         <SectionExamples />
         <SectionDownload />
       </div>
-      <Footer />
     </div>
   );
 }

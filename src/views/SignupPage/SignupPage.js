@@ -1,10 +1,6 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
 // core components
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -18,13 +14,13 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "assets/jss/material-kit-react/views/signupPage.js";
 
 import image from "assets/img/cover1.jpg";
 
 const useStyles = makeStyles(styles);
 
-export default function LoginPage(props) {
+export default function SignupPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function () {
     setCardAnimation("");
@@ -54,7 +50,7 @@ export default function LoginPage(props) {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="info" className={classes.cardHeader}>
-                    <h4>Ingreso</h4>
+                    <h4>Registro</h4>
                     <div className={classes.socialLine}>
                       <Button
                         justIcon
@@ -85,15 +81,50 @@ export default function LoginPage(props) {
                       </Button>
                     </div>
                   </CardHeader>
-                  <Button
-                    color="success"
-                    size="lg"
-                    href={"/signup-page"}
-                    simple
-                  >
-                    O registre su cuenta aquí
+                  <Button color="success" href={"/login-page"} simple>
+                    O ingrese con su cuenta aquí
                   </Button>
                   <CardBody>
+                    <CustomInput
+                      labelText="Nombre(s)"
+                      id="first"
+                      formControlProps={{
+                        fullWidth: true,
+                      }}
+                      inputProps={{
+                        type: "text",
+                      }}
+                    />
+                    <CustomInput
+                      labelText="Apellido(s)"
+                      id="last"
+                      formControlProps={{
+                        fullWidth: true,
+                      }}
+                      inputProps={{
+                        type: "text",
+                      }}
+                    />
+                    <CustomInput
+                      labelText="DNI"
+                      id="dni"
+                      formControlProps={{
+                        fullWidth: true,
+                      }}
+                      inputProps={{
+                        type: "number",
+                      }}
+                    />
+                    <CustomInput
+                      labelText="Teléfono"
+                      id="phone"
+                      formControlProps={{
+                        fullWidth: true,
+                      }}
+                      inputProps={{
+                        type: "number",
+                      }}
+                    />
                     <CustomInput
                       labelText="Email"
                       id="email"
@@ -102,11 +133,6 @@ export default function LoginPage(props) {
                       }}
                       inputProps={{
                         type: "email",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        ),
                       }}
                     />
                     <CustomInput
@@ -117,23 +143,12 @@ export default function LoginPage(props) {
                       }}
                       inputProps={{
                         type: "password",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Icon className={classes.inputIconsColor}>
-                              lock_outline
-                            </Icon>
-                          </InputAdornment>
-                        ),
-                        autoComplete: "off",
                       }}
                     />
                   </CardBody>
-                  <Button color="warning" size="md" simple>
-                    Olvidé mi contraseña
-                  </Button>
                   <CardFooter className={classes.cardFooter}>
                     <Button color="success" size="lg">
-                      INGRESAR
+                      REGISTRARSE
                     </Button>
                   </CardFooter>
                 </form>
