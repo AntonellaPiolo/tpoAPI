@@ -569,15 +569,44 @@ export default function ProfilePage(props) {
                                 <Typography>Vacunación</Typography>
                               </AccordionSummary>
                               <AccordionDetails>
-                                <Typography>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipiscing elit. Suspendisse malesuada lacus
-                                  malesuada lacus ex, sit amet blandit leo
-                                  lobortis eget. Lorem ipsum dolor sit amet,
-                                  consectetur adipiscing elit. Suspendisse
-                                  malesuada lacus ex, sit amet blandit leo
-                                  lobortis eget.
-                                </Typography>
+                                <Card>
+                                  <CardHeader color="success">
+                                    <h4 className={classes.cardtypeWhite}>
+                                      Calendario de vacunas
+                                    </h4>
+                                  </CardHeader>
+                                  <CardBody>
+                                    <table className="table table-bordered table-dark">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">#</th>
+                                          <th scope="col">First</th>
+                                          <th scope="col">Last</th>
+                                          <th scope="col">Handle</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="row">1</th>
+                                          <td>Mark</td>
+                                          <td>Otto</td>
+                                          <td>@mdo</td>
+                                        </tr>
+                                        <tr>
+                                          <th scope="row">2</th>
+                                          <td>Jacob</td>
+                                          <td>Thornton</td>
+                                          <td>@fat</td>
+                                        </tr>
+                                        <tr>
+                                          <th scope="row">3</th>
+                                          <td colSpan="2">Larry the Bird</td>
+                                          <td>@twitter</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </CardBody>
+                                </Card>
                               </AccordionDetails>
                             </Accordion>
                             <Accordion
@@ -591,15 +620,55 @@ export default function ProfilePage(props) {
                                 <Typography>Consulta de percentiles</Typography>
                               </AccordionSummary>
                               <AccordionDetails>
-                                <Typography>
-                                  Lorem ipsum dolor sit amet, consectetur
-                                  adipiscing elit. Suspendisse malesuada lacus
-                                  malesuada lacus ex, sit amet blandit leo
-                                  lobortis eget. Lorem ipsum dolor sit amet,
-                                  consectetur adipiscing elit. Suspendisse
-                                  malesuada lacus ex, sit amet blandit leo
-                                  lobortis eget.
-                                </Typography>
+                                <Card>
+                                  <CardHeader color="success">
+                                    <h4 className={classes.cardtypeWhite}>
+                                      Comparación con tabla de percentiles
+                                    </h4>
+                                  </CardHeader>
+                                  <CardBody>
+                                    <Card>
+                                      <CardHeader color="success">
+                                        <h4 className={classes.cardtypeWhite}>
+                                          Calendario de vacunas
+                                        </h4>
+                                      </CardHeader>
+                                      <CardBody>
+                                        <table className="table table-bordered table-dark">
+                                          <thead>
+                                            <tr>
+                                              <th scope="col">#</th>
+                                              <th scope="col">First</th>
+                                              <th scope="col">Last</th>
+                                              <th scope="col">Handle</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <th scope="row">1</th>
+                                              <td>Mark</td>
+                                              <td>Otto</td>
+                                              <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">2</th>
+                                              <td>Jacob</td>
+                                              <td>Thornton</td>
+                                              <td>@fat</td>
+                                            </tr>
+                                            <tr>
+                                              <th scope="row">3</th>
+                                              <td colSpan="2">
+                                                Larry the Bird
+                                              </td>
+                                              <td>@twitter</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </CardBody>
+                                    </Card>
+                                  </CardBody>
+                                </Card>
                               </AccordionDetails>
                             </Accordion>
                           </GridItem>
