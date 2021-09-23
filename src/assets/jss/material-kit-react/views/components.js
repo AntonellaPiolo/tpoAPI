@@ -19,7 +19,7 @@ const componentsStyle = {
   },
   main: {
     background: "#FFFFFF",
-    position: "relative",
+    position: "init",
     zIndex: "3",
   },
   mainRaised: {

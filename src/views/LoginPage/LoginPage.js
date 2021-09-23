@@ -132,7 +132,7 @@ export default function LoginPage(props) {
                     Olvidé mi contraseña
                   </Button>
                   <CardFooter className={classes.cardFooter}>
-                    <Button color="success" size="lg">
+                    <Button color="success" size="lg" href={"/profile-page"}>
                       INGRESAR
                     </Button>
                   </CardFooter>
