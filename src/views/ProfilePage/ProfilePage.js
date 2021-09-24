@@ -65,6 +65,77 @@ function createData(date, weight, height, head) {
   };
 }
 
+function createData1(
+  edad,
+  bcg,
+  hepatitisb,
+  pentavalente,
+  rotavirus,
+  cuadruple,
+  salk,
+  neumococo,
+  gripe,
+  meningococo,
+  triplev,
+  hepatitisa,
+  varicela,
+  triplecelular,
+  tripleacelular,
+  hpv,
+  doblebac,
+  doblev
+) {
+  return {
+    edad,
+    bcg,
+    hepatitisb,
+    pentavalente,
+    rotavirus,
+    cuadruple,
+    salk,
+    neumococo,
+    gripe,
+    meningococo,
+    triplev,
+    hepatitisa,
+    varicela,
+    triplecelular,
+    tripleacelular,
+    hpv,
+    doblebac,
+    doblev,
+  };
+}
+
+const rows1 = [
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>0-1 meses</b>,<Button color="success" size="sm" default>Aplicada</Button>,<Button color="success" size="sm" default>Aplicada</Button>,"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>2 meses</b>,"-","-",<Button color="success" size="sm" default>Aplicada</Button>,<Button color="success" size="sm" default>Aplicada</Button>,"-",<Button color="success" size="sm" default>Aplicada</Button>,<Button color="success" size="sm" default>Aplicada</Button>,"-","-","-","-","-","-","-","-","-","-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>3 meses</b>,"-","-","-","-","-","-","-","-",<Button color="success" size="sm" default>Aplicada</Button>,"-","-","-","-","-","-","-","-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>4 meses</b>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>,<Button color="danger" size="sm" default>No aplicada</Button>,"-",<Button color="danger" size="sm" default>No aplicada</Button>,<Button color="danger" size="sm" default>No aplicada</Button>,"-","-","-","-","-","-","-","-","-","-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>5 meses</b>,"-","-","-","-","-","-","-","-",<Button color="danger" size="sm" default>No aplicada</Button>,"-","-","-","-","-","-","-","-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>6 meses</b>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>,"-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", <Button color="danger" size="sm" default>No aplicada</Button>,"-","-","-","-","-","-","-","-","-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>12 meses</b>, "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>15 meses</b>, "-", "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>15-18 meses</b>, "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-", "-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>24 meses</b>, "-", "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-", "-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>5-6 años</b>, "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>11 años</b>, "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-"),
+  // eslint-disable-next-line prettier/prettier
+  createData1(<b>Adultos</b>, "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>),
+];
+
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
@@ -144,9 +215,26 @@ Row.propTypes = {
   }).isRequired,
 };
 
+function createData11(date, vaccine, place) {
+  return { date, vaccine, place };
+}
+
+const rows11 = [
+  createData11("12/09/2020", "BCG", "Fundación Dr. Socolinsky"),
+  createData11("14/09/2020", "Hepatitis B", "Fundación Dr. Socolinsky"),
+  createData11("13/11/2020", "Pentavalente", "Fundación Dr. Socolinsky"),
+  createData11("13/11/2020", "Rotavirus", "Fundación Dr. Socolinsky"),
+  createData11(
+    "15/11/2020",
+    "Salk (Poliomielitis)",
+    "Fundación Dr. Socolinsky"
+  ),
+];
+
 export default function ProfilePage(props) {
-  const [classicModal, setClassicModal] = React.useState(false);
   const [classicModal1, setClassicModal1] = React.useState(false);
+  const [classicModal2, setClassicModal2] = React.useState(false);
+  const [classicModal3, setClassicModal3] = React.useState(false);
   const classes = useStyles();
   const { ...rest } = props;
   const [expanded, setExpanded] = React.useState("panel1");
@@ -156,6 +244,8 @@ export default function ProfilePage(props) {
   };
   const defaultProps = {
     options: bloodType,
+    // eslint-disable-next-line no-dupe-keys
+    options: vaccine,
     getOptionLabel: (option) => option.type,
   };
 
@@ -375,7 +465,7 @@ export default function ProfilePage(props) {
                                     <Button
                                       color="transparent"
                                       simple
-                                      onClick={() => setClassicModal(true)}
+                                      onClick={() => setClassicModal2(true)}
                                     >
                                       <AddCircleIcon
                                         className={classes.icons}
@@ -387,10 +477,10 @@ export default function ProfilePage(props) {
                                         root: classes.center,
                                         paper: classes.modal,
                                       }}
-                                      open={classicModal}
+                                      open={classicModal2}
                                       TransitionComponent={Transition}
                                       keepMounted
-                                      onClose={() => setClassicModal(false)}
+                                      onClose={() => setClassicModal2(false)}
                                       aria-labelledby="classic-modal-slide-type"
                                       aria-describedby="classic-modal-slide-description"
                                     >
@@ -509,7 +599,7 @@ export default function ProfilePage(props) {
                                           </CardBody>
                                           <CardFooter>
                                             <Button color="default">
-                                              Guardar cambios
+                                              Aceptar
                                             </Button>
                                           </CardFooter>
                                         </Card>
@@ -518,7 +608,9 @@ export default function ProfilePage(props) {
                                         className={classes.modalFooter}
                                       >
                                         <Button
-                                          onClick={() => setClassicModal(false)}
+                                          onClick={() =>
+                                            setClassicModal2(false)
+                                          }
                                           color="danger"
                                           simple
                                         >
@@ -571,40 +663,271 @@ export default function ProfilePage(props) {
                               <AccordionDetails>
                                 <Card>
                                   <CardHeader color="success">
-                                    <h4 className={classes.cardtypeWhite}>
-                                      Calendario de vacunas
-                                    </h4>
+                                    <Button
+                                      color="transparent"
+                                      simple
+                                      onClick={() => setClassicModal3(true)}
+                                    >
+                                      <AddCircleIcon
+                                        className={classes.icons}
+                                      />
+                                      Registrar vacuna aplicada
+                                    </Button>
+                                    <Dialog
+                                      classes={{
+                                        root: classes.center,
+                                        paper: classes.modal,
+                                      }}
+                                      open={classicModal3}
+                                      TransitionComponent={Transition}
+                                      keepMounted
+                                      onClose={() => setClassicModal3(false)}
+                                      aria-labelledby="classic-modal-slide-type"
+                                      aria-describedby="classic-modal-slide-description"
+                                    >
+                                      <DialogContent
+                                        id="classic-modal-slide-description"
+                                        className={classes.modalBody}
+                                      >
+                                        <Card>
+                                          <CardHeader color="info">
+                                            <h4
+                                              className={classes.cardtypeWhite}
+                                            >
+                                              Nueva aplicación
+                                            </h4>
+                                          </CardHeader>
+                                          <CardBody>
+                                            <GridContainer>
+                                              <GridItem xs={12} sm={12} md={6}>
+                                                <Autocomplete
+                                                  {...defaultProps}
+                                                  id="vaccine"
+                                                  disableClearable
+                                                  defaultValue={vaccine[1]}
+                                                  renderInput={(params) => (
+                                                    <TextField
+                                                      {...params}
+                                                      label="Vacuna"
+                                                      variant="standard"
+                                                    />
+                                                  )}
+                                                />
+                                              </GridItem>
+                                            </GridContainer>
+                                            <GridContainer>
+                                              <GridItem xs={12} sm={12} md={6}>
+                                                <TextField
+                                                  id="date"
+                                                  label="fecha"
+                                                  fullWidth="True"
+                                                  margin="dense"
+                                                />
+                                              </GridItem>
+                                              <GridItem xs={12} sm={12} md={6}>
+                                                <TextField
+                                                  id="place"
+                                                  label="Lugar"
+                                                  fullWidth="True"
+                                                  margin="dense"
+                                                />
+                                              </GridItem>
+                                            </GridContainer>
+                                          </CardBody>
+                                          <CardFooter>
+                                            <Button color="default">
+                                              Aceptar
+                                            </Button>
+                                          </CardFooter>
+                                        </Card>
+                                      </DialogContent>
+                                      <DialogActions
+                                        className={classes.modalFooter}
+                                      >
+                                        <Button
+                                          onClick={() =>
+                                            setClassicModal3(false)
+                                          }
+                                          color="danger"
+                                          simple
+                                        >
+                                          Cerrar
+                                        </Button>
+                                      </DialogActions>
+                                    </Dialog>
                                   </CardHeader>
                                   <CardBody>
-                                    <table className="table table-bordered table-dark">
-                                      <thead>
-                                        <tr>
-                                          <th scope="col">#</th>
-                                          <th scope="col">First</th>
-                                          <th scope="col">Last</th>
-                                          <th scope="col">Handle</th>
-                                        </tr>
-                                      </thead>
-                                      <tbody>
-                                        <tr>
-                                          <th scope="row">1</th>
-                                          <td>Mark</td>
-                                          <td>Otto</td>
-                                          <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">2</th>
-                                          <td>Jacob</td>
-                                          <td>Thornton</td>
-                                          <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                          <th scope="row">3</th>
-                                          <td colSpan="2">Larry the Bird</td>
-                                          <td>@twitter</td>
-                                        </tr>
-                                      </tbody>
-                                    </table>
+                                    <TableContainer component={Paper}>
+                                      <Table
+                                        sx={{ minWidth: 650 }}
+                                        aria-label="caption table"
+                                      >
+                                        <TableHead>
+                                          <TableRow>
+                                            <TableCell align="center">
+                                              Edad/Vacuna
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              BCG
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Hepatitis B
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Pentavalente
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Rotavirus
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Cuádruple/ Pentavalente
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Salk (Poliomielitis)
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Neumococo Conjugada
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Gripe
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Meningococo (A/C/W/Y)
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Triple viral
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Hepatitis A
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Varicela
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Triple bacteriana celular
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Triple bacteriana acelular
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              HPV
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Doble bacteriana
+                                            </TableCell>
+                                            <TableCell align="center">
+                                              Doble viral
+                                            </TableCell>
+                                          </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                          {rows1.map((row) => (
+                                            <TableRow key={row.edad}>
+                                              <TableCell
+                                                component="th"
+                                                scope="row"
+                                              >
+                                                {row.edad}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.bcg}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.hepatitisb}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.pentavalente}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.rotavirus}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.cuadruple}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.salk}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.neumococo}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.gripe}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.meningococo}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.triplev}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.hepatitisa}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.varicela}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.triplecelular}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.tripleacelular}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.hpv}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.doblebac}
+                                              </TableCell>
+                                              <TableCell align="center">
+                                                {row.doblev}
+                                              </TableCell>
+                                            </TableRow>
+                                          ))}
+                                        </TableBody>
+                                      </Table>
+                                    </TableContainer>
+                                    <TableContainer component={Paper}>
+                                      <Table
+                                        sx={{ minWidth: 650 }}
+                                        size="small"
+                                        aria-label="a dense table"
+                                      >
+                                        <TableHead>
+                                          <TableRow>
+                                            <TableCell>Fecha</TableCell>
+                                            <TableCell align="right">
+                                              Vacuna aplicada
+                                            </TableCell>
+                                            <TableCell align="right">
+                                              Lugar
+                                            </TableCell>
+                                          </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                          {rows11.map((row) => (
+                                            <TableRow
+                                              key={row.vaccine}
+                                              sx={{
+                                                "&:last-child td, &:last-child th":
+                                                  { border: 0 },
+                                              }}
+                                            >
+                                              <TableCell
+                                                component="th"
+                                                scope="row"
+                                              >
+                                                {row.date}
+                                              </TableCell>
+                                              <TableCell align="right">
+                                                {row.vaccine}
+                                              </TableCell>
+                                              <TableCell align="right">
+                                                {row.place}
+                                              </TableCell>
+                                            </TableRow>
+                                          ))}
+                                        </TableBody>
+                                      </Table>
+                                    </TableContainer>
                                   </CardBody>
                                 </Card>
                               </AccordionDetails>
@@ -626,48 +949,7 @@ export default function ProfilePage(props) {
                                       Comparación con tabla de percentiles
                                     </h4>
                                   </CardHeader>
-                                  <CardBody>
-                                    <Card>
-                                      <CardHeader color="success">
-                                        <h4 className={classes.cardtypeWhite}>
-                                          Calendario de vacunas
-                                        </h4>
-                                      </CardHeader>
-                                      <CardBody>
-                                        <table className="table table-bordered table-dark">
-                                          <thead>
-                                            <tr>
-                                              <th scope="col">#</th>
-                                              <th scope="col">First</th>
-                                              <th scope="col">Last</th>
-                                              <th scope="col">Handle</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>
-                                            <tr>
-                                              <th scope="row">1</th>
-                                              <td>Mark</td>
-                                              <td>Otto</td>
-                                              <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">2</th>
-                                              <td>Jacob</td>
-                                              <td>Thornton</td>
-                                              <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                              <th scope="row">3</th>
-                                              <td colSpan="2">
-                                                Larry the Bird
-                                              </td>
-                                              <td>@twitter</td>
-                                            </tr>
-                                          </tbody>
-                                        </table>
-                                      </CardBody>
-                                    </Card>
-                                  </CardBody>
+                                  <CardBody></CardBody>
                                 </Card>
                               </AccordionDetails>
                             </Accordion>
@@ -702,6 +984,26 @@ const bloodType = [
   { type: "B+" },
   { type: "AB-" },
   { type: "AB+" },
+];
+
+const vaccine = [
+  { type: "BCG" },
+  { type: "Hepatitis B" },
+  { type: "Pentavalente" },
+  { type: "Rotavirus" },
+  { type: "Cuádruple/ Pentavalente" },
+  { type: "Salk (Poliomielitis)" },
+  { type: "Neumococo Conjugada" },
+  { type: "Gripe" },
+  { type: "Meningococo A/C/W/Y" },
+  { type: "Triple viral" },
+  { type: "Hepatitis A" },
+  { type: "Varicela" },
+  { type: "Triple bacteriana celular" },
+  { type: "Triple bacteriana acelular" },
+  { type: "HPV" },
+  { type: "Doble bacteriana" },
+  { type: "Doble viral" },
 ];
 
 const rows = [
