@@ -32,7 +32,7 @@ export default function SignupPage(props) {
       <Header
         absolute
         color="transparent"
-        brand="Material Kit React"
+        brand={"A&A"}
         rightLinks={<HeaderLinks />}
         {...rest}
       />
@@ -51,7 +51,7 @@ export default function SignupPage(props) {
                 <form className={classes.form}>
                   <CardHeader color="info" className={classes.cardHeader}>
                     <h4>Registro</h4>
-                    <div className={classes.socialLine}>
+                    {/* <div className={classes.socialLine}>
                       <Button
                         justIcon
                         href="#pablo"
@@ -79,7 +79,7 @@ export default function SignupPage(props) {
                       >
                         <i className={"fab fa-google-plus-g"} />
                       </Button>
-                    </div>
+                    </div> */}
                   </CardHeader>
                   <Button color="success" href={"/login-page"} simple>
                     O ingrese con su cuenta aquí

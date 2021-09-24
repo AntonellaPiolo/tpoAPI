@@ -50,7 +50,57 @@ import Divider from "@material-ui/core/Divider";
 
 import styles from "assets/jss/material-kit-react/views/profilePage.js";
 
+// Percentile Graph
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer
+} from "recharts";
+
 const useStyles = makeStyles(styles);
+
+const data = [
+  {
+    name: "0",
+    uv: 2.5,
+    pv: 2.3,
+  },
+  {
+    name: "3",
+    uv: 5,
+    pv: 3,
+  },
+  {
+    name: "6",
+    uv: 6,
+    pv: 4,
+  },
+  {
+    name: "9",
+    uv: 8,
+    pv: 7,
+  },
+  {
+    name: "12",
+    uv: 9,
+    pv: 9.4,
+  },
+  {
+    name: "15",
+    uv: 9.5,
+    pv: 10,
+  },
+  {
+    name: "18",
+    uv: 10,
+    pv: 11,
+  }
+];
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
@@ -108,31 +158,18 @@ function createData1(
 }
 
 const rows1 = [
-  // eslint-disable-next-line prettier/prettier
-  createData1(<b>0-1 meses</b>,<Button color="success" size="sm" default>Aplicada</Button>,<Button color="success" size="sm" default>Aplicada</Button>,"-","-","-","-","-","-","-","-","-","-","-","-","-","-","-"),
-  // eslint-disable-next-line prettier/prettier
-  createData1(<b>2 meses</b>,"-","-",<Button color="success" size="sm" default>Aplicada</Button>,<Button color="success" size="sm" default>Aplicada</Button>,"-",<Button color="success" size="sm" default>Aplicada</Button>,<Button color="success" size="sm" default>Aplicada</Button>,"-","-","-","-","-","-","-","-","-","-"),
-  // eslint-disable-next-line prettier/prettier
-  createData1(<b>3 meses</b>,"-","-","-","-","-","-","-","-",<Button color="success" size="sm" default>Aplicada</Button>,"-","-","-","-","-","-","-","-"),
-  // eslint-disable-next-line prettier/prettier
-  createData1(<b>4 meses</b>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>,<Button color="danger" size="sm" default>No aplicada</Button>,"-",<Button color="danger" size="sm" default>No aplicada</Button>,<Button color="danger" size="sm" default>No aplicada</Button>,"-","-","-","-","-","-","-","-","-","-"),
-  // eslint-disable-next-line prettier/prettier
-  createData1(<b>5 meses</b>,"-","-","-","-","-","-","-","-",<Button color="danger" size="sm" default>No aplicada</Button>,"-","-","-","-","-","-","-","-"),
-  // eslint-disable-next-line prettier/prettier
-  createData1(<b>6 meses</b>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>,"-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", <Button color="danger" size="sm" default>No aplicada</Button>,"-","-","-","-","-","-","-","-","-"),
-  // eslint-disable-next-line prettier/prettier
+  createData1(<b>0-1 meses</b>, <Button color="success" size="sm" default>Aplicada</Button>, <Button color="success" size="sm" default>Aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"),
+  createData1(<b>2 meses</b>, "-", "-", <Button color="success" size="sm" default>Aplicada</Button>, <Button color="success" size="sm" default>Aplicada</Button>, "-", <Button color="success" size="sm" default>Aplicada</Button>, <Button color="success" size="sm" default>Aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"),
+  createData1(<b>3 meses</b>, "-", "-", "-", "-", "-", "-", "-", "-", <Button color="success" size="sm" default>Aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-"),
+  createData1(<b>4 meses</b>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-", "-", "-"),
+  createData1(<b>5 meses</b>, "-", "-", "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-"),
+  createData1(<b>6 meses</b>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-", "-"),
   createData1(<b>12 meses</b>, "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-"),
-  // eslint-disable-next-line prettier/prettier
   createData1(<b>15 meses</b>, "-", "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-"),
-  // eslint-disable-next-line prettier/prettier
   createData1(<b>15-18 meses</b>, "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-", "-"),
-  // eslint-disable-next-line prettier/prettier
   createData1(<b>24 meses</b>, "-", "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", "-", "-"),
-  // eslint-disable-next-line prettier/prettier
   createData1(<b>5-6 años</b>, "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-"),
-  // eslint-disable-next-line prettier/prettier
   createData1(<b>11 años</b>, "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-"),
-  // eslint-disable-next-line prettier/prettier
   createData1(<b>Adultos</b>, "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, "-", "-", "-", "-", "-", <Button color="danger" size="sm" default>No aplicada</Button>, <Button color="danger" size="sm" default>No aplicada</Button>),
 ];
 
@@ -253,7 +290,7 @@ export default function ProfilePage(props) {
     <div>
       <Header
         color="transparent"
-        brand="Material Kit React"
+        brand={"A&A"}
         rightLinks={
           <>
             <Button
@@ -345,7 +382,7 @@ export default function ProfilePage(props) {
                 </Button>
               </DialogActions>
             </Dialog>
-            <Button color="transparent" className={classes.navLink}>
+            <Button color="transparent" className={classes.navLink} href={"/"} >
               <LockIcon className={classes.icons} /> Cerrar sesión
             </Button>
           </>
@@ -952,7 +989,34 @@ export default function ProfilePage(props) {
                                       Comparación con tabla de percentiles
                                     </h4>
                                   </CardHeader>
-                                  <CardBody></CardBody>
+                                  <CardBody style={{ width: "100%", height: "300px" }}>
+                                    <ResponsiveContainer>
+                                      <LineChart
+                                        width={500}
+                                        height={300}
+                                        data={data}
+                                        margin={{
+                                          top: 5,
+                                          right: 30,
+                                          left: 20,
+                                          bottom: 5
+                                        }}
+                                      >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis dataKey="name" />
+                                        <YAxis />
+                                        <Tooltip />
+                                        <Legend />
+                                        <Line
+                                          type="monotone"
+                                          dataKey="pv"
+                                          stroke="#8884d8"
+                                          activeDot={{ r: 8 }}
+                                        />
+                                        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                                      </LineChart>
+                                    </ResponsiveContainer>
+                                  </CardBody>
                                 </Card>
                               </AccordionDetails>
                             </Accordion>

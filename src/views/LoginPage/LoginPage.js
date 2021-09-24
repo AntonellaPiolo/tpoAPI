@@ -36,7 +36,7 @@ export default function LoginPage(props) {
       <Header
         absolute
         color="transparent"
-        brand="Material Kit React"
+        brand={"A&A"}
         rightLinks={<HeaderLinks />}
         {...rest}
       />
@@ -55,7 +55,7 @@ export default function LoginPage(props) {
                 <form className={classes.form}>
                   <CardHeader color="info" className={classes.cardHeader}>
                     <h4>Ingreso</h4>
-                    <div className={classes.socialLine}>
+                    {/* <div className={classes.socialLine}>
                       <Button
                         justIcon
                         href="#pablo"
@@ -83,7 +83,7 @@ export default function LoginPage(props) {
                       >
                         <i className={"fab fa-google-plus-g"} />
                       </Button>
-                    </div>
+                    </div> */}
                   </CardHeader>
                   <Button
                     color="success"

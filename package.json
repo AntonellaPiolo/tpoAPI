@@ -27,7 +27,8 @@
     "react-responsive-accordion": "^1.0.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
-    "react-slick": "0.28.1"
+    "react-slick": "0.28.1",
+    "recharts": "^2.1.4"
   },
   "devDependencies": {
     "@babel/cli": "7.13.16",
@@ -38,8 +39,7 @@
     "eslint-plugin-prettier": "3.4.0",
     "eslint-plugin-react": "7.23.2",
     "gulp": "4.0.2",
-    "gulp-append-prepend": "1.0.9",
-    "prettier": "2.3.0"
+    "gulp-append-prepend": "1.0.9"
   },
   "scripts": {
     "start": "react-scripts start",
