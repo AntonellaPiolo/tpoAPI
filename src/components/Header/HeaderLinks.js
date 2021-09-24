@@ -26,7 +26,7 @@ export default function HeaderLinks(props) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
-      
+
       <ListItem className={classes.listItem}>
         <Button
           href={"/login-page"}
@@ -40,11 +40,11 @@ export default function HeaderLinks(props) {
           color="transparent"
           className={classes.navLink}
         >
-         Registro
+          Registro
         </Button>
 
 
-        
+
       </ListItem>
       <ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
@@ -52,7 +52,7 @@ export default function HeaderLinks(props) {
             <DeleteIcon />
           </IconButton>
         </Tooltip>*/}
-        <Tooltip
+        {/* <Tooltip
           id="instagram-twitter"
           title="Follow us on twitter"
           placement={window.innerWidth > 959 ? "top" : "left"}
@@ -100,7 +100,7 @@ export default function HeaderLinks(props) {
           >
             <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
-        </Tooltip>
+        </Tooltip> */}
       </ListItem>
     </List>
   );

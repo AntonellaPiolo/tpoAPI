@@ -282,7 +282,7 @@ export default function ProfilePage(props) {
                   color="info"
                   tabs={[
                     {
-                      tabButton: "Emma Hastings",
+                      tabButton: "Andrea Hastings",
                       tabContent: (
                         <GridContainer justify="center">
                           <GridItem>
@@ -308,10 +308,13 @@ export default function ProfilePage(props) {
                                       <GridItem xs={12} sm={12} md={4}>
                                         <TextField
                                           id="date"
+                                          type="date"
                                           label="Fecha de nacimiento"
-                                          defaultValue="11/09/2020"
-                                          variant="standard"
+                                          defaultValue="2020-09-24"
                                           fullWidth="True"
+                                          InputLabelProps={{
+                                            shrink: true,
+                                          }}
                                         />
                                       </GridItem>
                                       <GridItem xs={12} sm={12} md={3}>
@@ -676,7 +679,7 @@ export default function ProfilePage(props) {
                       ),
                     },
                     {
-                      tabButton: "Lucas Hastings",
+                      tabButton: "Antonella Hastings",
                     },
                     {
                       tabButton: "+",
