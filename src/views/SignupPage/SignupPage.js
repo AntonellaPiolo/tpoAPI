@@ -26,6 +26,11 @@ export default function SignupPage(props) {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
+  const [firstName, setFirstName] = React.useState("");
+  const handleChange = (event) => {
+    setFirstName(event.target.value);
+    console.log(event.target.value);
+  };
   const { ...rest } = props;
   return (
     <div>
@@ -87,6 +92,7 @@ export default function SignupPage(props) {
                   <CardBody>
                     <CustomInput
                       labelText="Nombre(s)"
+                      onChange={handleChange}
                       id="first"
                       formControlProps={{
                         fullWidth: true,

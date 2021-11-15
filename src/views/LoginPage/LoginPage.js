@@ -1,4 +1,6 @@
 import React from "react";
+import {Redirect} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -18,6 +20,9 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
+//importo llamada a endpoint
+import {login} from "assets/jss/material-kit-react/controller/miApp.controller";
+
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/cover1.jpg";
@@ -25,12 +30,72 @@ import image from "assets/img/cover1.jpg";
 const useStyles = makeStyles(styles);
 
 export default function LoginPage(props) {
+  const history = useHistory();
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [email,setEmail]=React.useState('');
+  const[password,setPassword]=React.useState('');
+  const[usuarioValido,setUsuarioValido]=React.useState(false);
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
+
+  const handleEmail=(event)=>{
+    setEmail(event.target.value);
+}
+  const handlePassword=(event)=>{    
+    setPassword(event.target.value);
+}
+  //Ejecuto el endopoint para validar login
+  const validarLogin= async function()
+  {
+      let datos = {
+        email: email,
+        password:password
+      }
+      console.log(datos);
+      let getLogin = await login(datos);
+      console.log("responseLogin", getLogin);
+      //JSON.parse(localStorage.getItem('nombre'));
+      console.log(localStorage.getItem('nombre'));
+      if (localStorage.getItem('nombre') !== undefined)
+      {
+        setUsuarioValido(true);
+        history.push({
+          pathname: '/profile-page',
+        })
+      }
+      else
+      {
+        alert("usuario no válido")
+      }
+      
+  }
+  
+  //Valido campos y llamo endpoint
+  const loginUser=()=>
+  {
+    if (email!=="" && password!=="")
+    {
+      validarLogin();
+    }
+    else
+    {
+      alert("Debe completar usuario y password");
+    }
+    
+    
+  }  
+  const redirect= ()=>{
+    if (usuarioValido) {
+
+      return <Redirect to='/loginPage' />
+    }
+    
+
+  } 
+
   return (
     <div>
       <Header
@@ -48,6 +113,8 @@ export default function LoginPage(props) {
           backgroundPosition: "top center",
         }}
       >
+       {redirect()}  
+
         <div className={classes.container}>
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
@@ -55,35 +122,6 @@ export default function LoginPage(props) {
                 <form className={classes.form}>
                   <CardHeader color="info" className={classes.cardHeader}>
                     <h4>Ingreso</h4>
-                    {/* <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div> */}
                   </CardHeader>
                   <Button
                     color="success"
@@ -102,6 +140,7 @@ export default function LoginPage(props) {
                       }}
                       inputProps={{
                         type: "email",
+                        onChange: (event) => handleEmail(event),
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -112,11 +151,13 @@ export default function LoginPage(props) {
                     <CustomInput
                       labelText="Contraseña"
                       id="pass"
+                      value=""
                       formControlProps={{
                         fullWidth: true,
                       }}
                       inputProps={{
                         type: "password",
+                        onChange: (event) => handlePassword(event),
                         endAdornment: (
                           <InputAdornment position="end">
                             <Icon className={classes.inputIconsColor}>
@@ -132,7 +173,10 @@ export default function LoginPage(props) {
                     Olvidé mi contraseña
                   </Button>
                   <CardFooter className={classes.cardFooter}>
-                    <Button color="success" size="lg" href={"/profile-page"}>
+                    <Button 
+                      color="success" 
+                      size="lg" 
+                      onClick={loginUser}>
                       INGRESAR
                     </Button>
                   </CardFooter>
