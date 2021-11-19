@@ -36,6 +36,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Calendario de vacunacion"
+              description="Calendar"
               icon={Calendar}
               iconColor="info"
               vertical
@@ -44,6 +45,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Controles medicos"
+              description="Checkup"
               icon={Vaccine}
               iconColor="success"
               vertical
@@ -52,6 +54,7 @@ export default function ProductSection() {
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Parametros generales de control"
+              description="Checkup normal parameters"
               icon={Graph}
               iconColor="danger"
               vertical

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -18,20 +19,69 @@ import styles from "assets/jss/material-kit-react/views/signupPage.js";
 
 import image from "assets/img/cover1.jpg";
 
+import axiosClient from "../../config/axios";
+import Alert from '@mui/material/Alert';
+
 const useStyles = makeStyles(styles);
 
 export default function SignupPage(props) {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
-  const [firstName, setFirstName] = React.useState("");
-  const handleChange = (event) => {
-    setFirstName(event.target.value);
-    console.log(event.target.value);
-  };
   const { ...rest } = props;
+
+  let history = useHistory();
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const [session, setSession] = useState({
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    dni: "",
+    phone: "",
+  });
+
+  const updateSession = (e) => {
+    setSession({
+      ...session,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const register = async () => {
+    setLoading(true);
+    try {
+      setError("");
+      const data = {
+        email: session.email,
+        password: session.password,
+        firstName: session.firstName,
+        lastName: session.lastName,
+        dni: session.dni,
+        phone: session.phone,
+      }
+      const response = await axiosClient.put('/user', data);
+      if (response.data.id) {
+        props.setIsLogged(true);
+        window.localStorage.setItem('token', session.email);
+        window.localStorage.setItem('profile', JSON.stringify(response.data));
+        history.push("/");
+      } else {
+        setError("Hubo un error al crear el registro");
+        setLoading(false);
+      }
+    } catch (e) {
+      console.log(e);
+      setLoading(false);
+      setError("Hubo un error al crear el registro");
+    }
+  }
+
   return (
     <div>
       <Header
@@ -53,38 +103,9 @@ export default function SignupPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form className={classes.form} onSubmit={(e) => { e.preventDefault(); register(); }}>
                   <CardHeader color="info" className={classes.cardHeader}>
                     <h4>Registro</h4>
-                    {/* <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div> */}
                   </CardHeader>
                   <Button color="success" href={"/login-page"} simple>
                     O ingrese con su cuenta aquí
@@ -92,10 +113,10 @@ export default function SignupPage(props) {
                   <CardBody>
                     <CustomInput
                       labelText="Nombre(s)"
-                      onChange={handleChange}
-                      id="first"
+                      id="firstName"
                       formControlProps={{
                         fullWidth: true,
+                        onChange: updateSession,
                       }}
                       inputProps={{
                         type: "text",
@@ -103,9 +124,10 @@ export default function SignupPage(props) {
                     />
                     <CustomInput
                       labelText="Apellido(s)"
-                      id="last"
+                      id="lastName"
                       formControlProps={{
                         fullWidth: true,
+                        onChange: updateSession,
                       }}
                       inputProps={{
                         type: "text",
@@ -116,6 +138,7 @@ export default function SignupPage(props) {
                       id="dni"
                       formControlProps={{
                         fullWidth: true,
+                        onChange: updateSession,
                       }}
                       inputProps={{
                         type: "number",
@@ -126,6 +149,7 @@ export default function SignupPage(props) {
                       id="phone"
                       formControlProps={{
                         fullWidth: true,
+                        onChange: updateSession,
                       }}
                       inputProps={{
                         type: "number",
@@ -136,6 +160,7 @@ export default function SignupPage(props) {
                       id="email"
                       formControlProps={{
                         fullWidth: true,
+                        onChange: updateSession,
                       }}
                       inputProps={{
                         type: "email",
@@ -143,9 +168,10 @@ export default function SignupPage(props) {
                     />
                     <CustomInput
                       labelText="Contraseña"
-                      id="pass"
+                      id="password"
                       formControlProps={{
                         fullWidth: true,
+                        onChange: updateSession,
                       }}
                       inputProps={{
                         type: "password",
@@ -153,9 +179,15 @@ export default function SignupPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button color="success" size="lg">
+                    <Button color="success" size="lg" type="submit">
                       REGISTRARSE
                     </Button>
+                    {error !== '' ?
+                      <Alert severity="error">
+                        {error}
+                      </Alert>
+                      : null
+                    }
                   </CardFooter>
                 </form>
               </Card>
